@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <meta charset="UTF-8">  
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Dengu Prevention</title> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <script type="text/javascript">
+	$(document).ready(function() {
+    $(".sel4,.sel5, .sel6").select2();
+    
+	});
+</script> 
+        {% load static from staticfiles %}
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>--> 
+        <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+
+        <!--<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-material-design.min.css' %}" />--> 
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" /> 
+        <script  type="text/javascript" src="{% static 'src/CibulCalendar.js' %}"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+        <style type="text/css">
+
+          body { text-align: center; font-family: 'Arial',Tahoma,Helvetica,Sans-Serif;}
+          .content { padding: 20px; display: inline-block; font-size: 1em; }
+    
+          .ccal { width: 18em; font-size: 0.8em; margin-bottom: 5px;}
+          .ccal ul { margin: 0; padding: 0!important; text-align: center; }
+          .ccal li { list-style-type: none; display: inline-block; width: 13.2%; cursor: pointer; text-align: center; margin:0; }
+          .ccal li span { display: inline-block; line-height: 1.8em; }
+          .ccal li.calmonth { width: 66%; }
+          .ccal li span { padding: 0.1em 0.05em; display: block; }
+          .ccal li.calprev span, .ccal li.calnext span { color: #aaa; }
+          .ccal .calbody li.selected span { background: rgb(8, 83, 112); color: white; border-radius: 70%;}
+          .ccal .calbody li:hover {background: coral; border-radius: 70%; color: white; transition: 500ms;}
+          .ccal .calbody li.preselected span { background: #f0f0f0; }
+          .ccal * { -moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; }
+          .today { font-weight: bold; }
+          .calendar-canvas { 
+            z-index: 1;
+            text-align: center;
+            background: white;
+            -v-moz-box-shadow: 0 3px 4px #999999; 
+            -moz-box-shadow: 0 3px 4px #999999; 
+            -webkit-box-shadow: 0 3px 4px #999999; 
+            box-shadow: 0 1px 2px #999999;
+          }
+          .ar .calweekdays span { font-size: 0.75em; }
+        </style>
+        <script type="text/javascript">
+
+          function onload() {
+    
+            setCibulCalendar( 'datespan' );
+    
+          }
+          $(document).ready(function(){
+            $(".sar").click(function(){
+            $(".sar").hide();
+          });
+        });
+
+        $(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+
+
+        $(document).ready(function(){
+  $("#flipadmin").click(function(){
+    $("#paneladmin").slideToggle("slow");
+  });
+});
+
+
+function opendis() {
+  document.getElementById("myOverlaydis").style.display = "block";
+}
+
+// Close the full screen search box
+function closedis() {
+  document.getElementById("myOverlaydis").style.display = "none";
+} 
+//books
+// Open the full screen search box
+function openSearch() {
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+// Close the full screen search box
+function closeSearch() {
+  document.getElementById("myOverlay").style.display = "none";
+} 
+//book type
+function openSearchbt() {
+  document.getElementById("myOverlaybt").style.display = "block";
+}
+function closeSearchbt() {
+  document.getElementById("myOverlaybt").style.display = "none";
+}
+
+//book type
+function openSearchball() {
+  document.getElementById("myOverlayball").style.display = "block";
+}
+function closeSearchball() {
+  document.getElementById("myOverlayball").style.display = "none";
+}
+
+//Student Name
+function openSearchsn() {
+  document.getElementById("myOverlaysn").style.display = "block";
+}
+function closeSearchsn() {
+  document.getElementById("myOverlaysn").style.display = "none";
+}
+//Student Dept.
+function openSearchsd() {
+  document.getElementById("myOverlaysd").style.display = "block";
+}
+function closeSearchsd() {
+  document.getElementById("myOverlaysd").style.display = "none";
+}
+//Student all.
+function openSearchsall() {
+  document.getElementById("myOverlaysall").style.display = "block";
+}
+function closeSearchsall() {
+  document.getElementById("myOverlaysall").style.display = "none";
+}
+
+//Borrowing Name or Reg. ID
+function openSearchbrn() {
+  document.getElementById("myOverlaybrn").style.display = "block";
+}
+function closeSearchbrn() {
+  document.getElementById("myOverlaybrn").style.display = "none";
+}
+//Borrowing Book Name or Date
+function openSearchbrbd() {
+  document.getElementById("myOverlaybrbd").style.display = "block";
+}
+function closeSearchbrbd() {
+  document.getElementById("myOverlaybrbd").style.display = "none";
+}
+
+//Books Returns 
+function openSearchrt() {
+  document.getElementById("myOverlayrt").style.display = "block";
+}
+function closeSearchrt() {
+  document.getElementById("myOverlayrt").style.display = "none";
+}
+
+
+//index in all 
+function openSearchi() {
+  document.getElementById("myOverlayi").style.display = "block";
+}
+function closeSearchi() {
+  document.getElementById("myOverlayi").style.display = "none";
+}
+
+
+
+//hide down top bar
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-550px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+
+
+//making of sidebar
+
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("open").style.display = "none";
+
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("open").style.display = "block";
+
+}
+</script>   
+      </head> 
+<body onload="onload()">
+  <div id="navbar">
+  {% if user.is_authenticated %}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="display:none;z-index: 1;" id="paneladmin">
+    <a class="navbar-brand" href="#">Admin Panel</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="/admin"><i class='fas fa-chalkboard-teacher'></i> Django Administration</a>
+            </li>
+          <li class="nav-item">
+              <a class="nav-link" >Hello, {{user}}</a>
+            </li>
+      </ul>
+    </div>
+  </nav>
+  {% endif %}
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+        <a class="navbar-brand" href="#"><i id="lds-dual-ring"></i><i class="fa fa-bug fa-1x" aria-hidden="true"></i>
+          &nbsp; Dengue Prevention </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item dropdown {{h}}">
+                  <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class='fas fa-home'></i> Home
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item {{hh}}" href="/">Home</a>
+                    <a class="dropdown-item" href="#return">Today Return List 
+                      <button type="button" class="btn btn-{{hcolor}} btn-circle">{{tcount}}</button></a>
+                      <a class="dropdown-item" href="#delay">Delay List 
+                          <button type="button" class="btn btn-{{hcolor}} btn-circle">{{dcount}}</button></a>
+                       <a class="dropdown-item" href="#upcoming">Upcoming 7 days List 
+                          <button type="button" class="btn btn-{{hcolor}} btn-circle">{{ucount}}</button></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item">Search</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" onclick="openSearchi()" style="cursor: pointer;" >
+                        <i class='fas fa-reply-all'></i> Return list(Today, Delay, Upcoming)</a>
+                  </div>
+                </li>
+              
+            {% if user.is_authenticated %}
+            <li class="nav-item ">
+              <a class="nav-link" onclick="openSearchrt()" style="cursor: pointer;"><i class='fas fa-download'></i> Books Returns</a>
+            </li>
+            <li class="nav-item {{news}}">
+              <a class="nav-link"  href="/news/news"><i class='fas fa-newspaper'></i> News</a>
+            </li>
+            <li class="nav-item dropdown {{b}}">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class='fas fa-book-reader'></i> Books
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item {{bin}}" href="/books/binsert">New Insertion</a>
+                <a class="dropdown-item {{bli}}" href="/books/blist">Books List 
+                  <button type="button" class="btn btn-{{hcolor}} btn-circle">{{bcount}}</button></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item">Manage Category(Books)</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item {{bt}}" href="/cbooks/cbtype">Books Type</a>
+                <a class="dropdown-item {{bs}}" href="/cbooks/cbshelf">Books Shelf</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown {{br}}">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class='fas fa-share-square'></i> Books Borrowing
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item {{brin}}" href="/borrow/brinsert">New Insertion</a>
+                  <a class="dropdown-item {{brli}}" href="/borrow/brlist">Borrowing List
+                  <button type="button" class="btn btn-{{hcolor}} btn-circle">{{brcount}}</button></a>
+            
+                </div>
+              </li>
+
+            <li class="nav-item dropdown {{s}}">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class='fas fa-male'></i> Students
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item {{sin}}" href="/students/sinsert">New Student</a>
+                <a class="dropdown-item {{sli}}" href="/students/slist">Student List 
+                  <button type="button" class="btn btn-{{hcolor}} btn-circle">{{scount}}</button></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item">Manage Category(Books)</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item {{sd}}" href="/cstudents/cdepttype">New Dept.</a>
+                <a class="dropdown-item {{ss}}" href="/cstudents/csession">New Session</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown {{set}}">
+              
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class='fas fa-gear'></i> Setting
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item {{setcolor}}" href="/setting/headercolor">Manage Color</a>
+                <a class="dropdown-item {{setlog}}" href="/setting/activitylog">Activity Log
+                <button type="button" class="btn btn-{{hcolor}} btn-circle">{{logCount}}</button>
+                </a>
+                <a class="dropdown-item {{reg}}" href="/accounts/reg_form"><i class='fas fa-user'></i> Make Admin</a>
+                <a class="dropdown-item" href="/accounts/logout"><i class='fas fa-power-off'></i> Logout</a>
+                <a class="dropdown-item {{setpro}}" href="/accounts/profile"><i class='fas fa-user'></i> {{user}}(You)</a>                
+              </div>
+
+            </li>
+            {% else %}
+            <li class="nav-item {{news}}">
+              <a class="nav-link"  href="/viewsforall/viewsnews"><i class='fas fa-newspaper'></i> News</a>
+            </li>
+            <li class="nav-item {{log}}">
+              <a class="nav-link" href="/accounts/login"><i class='fas fa-key'></i> Login</a>
+            </li>
+            {% endif %}
+
+
+          </ul>
+          <button type="button" class="btn btn-dark btn-circle" id="flip"><i class="fas fa-search"></i>
+          </button>&nbsp;
+          {% if user.is_authenticated %}
+          <button type="button" class="btn btn-dark btn-circle" id="flipadmin"><i class="fas fa-chalkboard-teacher"></i>
+          </button>
+          {% endif %}
+        </div>
+      </nav>
+
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="display:none" id="panel">
+        <a class="navbar-brand " href="#"> <i class='fas fa-search'></i> Search</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+             
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class='fas fa-book-reader'></i> Books
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item">Search Books By: </a>
+                      <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" onclick="openSearch()" style="cursor: pointer;" >Name</a>
+                    <a class="dropdown-item" onclick="openSearchbt()" style="cursor: pointer;" >Type</a>
+                    <a class="dropdown-item" onclick="openSearchball()" style="cursor: pointer;">All</a>
+                  </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class='fas fa-male'></i> Students
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">Search Students By: </a>
+                        <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" onclick="openSearchsn()" style="cursor: pointer;" >Name or Reg. ID</a>
+                      <a class="dropdown-item" onclick="openSearchsd()" style="cursor: pointer;" >Dept. or Session</a>
+                      <a class="dropdown-item" onclick="openSearchsall()" style="cursor: pointer;">All</a>
+                    </div>
+                  </li>
+
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class='fas fa-share-square'></i> Borrowing
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">Search Borrowing By: </a>
+                        <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" onclick="openSearchbrn()" style="cursor: pointer;" >Name or Reg. ID</a>
+                      <a class="dropdown-item" onclick="openSearchbrbd()" style="cursor: pointer;">Books Name or Date</a>
+                    </div>
+                  </li>
+
+
+                <li class="nav-item ">
+                <a class="nav-link" onclick="openSearchi()" style="cursor: pointer;" >
+                    <i class='fas fa-reply-all'></i> Return list</a>
+                </li>
+
+          </ul>
+        </div>
+      </nav>
+      
+</div>
+
+
+
+
+<!--<div id="myOverlaydis" class="overlayc">
+  <span class="closebtn" onclick="closedis()" title="Close Overlay" style="z-index: 1;">x</span>
+  <div class="overlayc-content">
+    <div id="disqus_thread"></div>
+    <script>
+    
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://azadali.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                         
+  </div>  -->
+</div> 
+
+<!--Books -->
+    <!--Books By name-->
+      <div id="myOverlay" class="overlay">
+        <span class="closebtn" onclick="closeSearch()" title="Close Overlay" style="z-index: 1;">x</span>
+        <div class="overlay-content">
+            <form class="form-inline my-2 my-lg-0">
+                {% csrf_token %}
+                <div class="inner-addon left-addon">
+                  <i class="fas fa-search"></i>
+                <input class="form-control" id="bsearch" name="bsrh" placeholder="  Book Name">
+                <!--<button  class="btn btn-secondary" type="submit"> Search</button>-->
+              </div>
+              </form>
+          <div id="search-results" >
+          </div>
+        </div>
+      </div> 
+    <!--Books By type-->
+    <div id="myOverlaybt" class="overlay">
+        <span class="closebtn" onclick="closeSearchbt()" title="Close Overlay" style="z-index: 1;">x</span>
+        <div class="overlay-content">
+            <form class="form-inline my-2 my-lg-0">
+                {% csrf_token %}
+                <div class="inner-addon left-addon">
+                  <i class="fas fa-search"></i>
+                <input class="form-control" id="btsearch" name="btsrh" placeholder="  By Type">
+              </div>
+              </form>
+          <div id="btsearch-results" >
+    
+          </div>
+        </div>
+      </div> 
+ <!--Books By all-->
+    <div id="myOverlayball" class="overlay">
+        <span class="closebtn" onclick="closeSearchball()" title="Close Overlay" style="z-index: 1;">x</span>
+        <div class="overlay-content">
+            <form class="form-inline my-2 my-lg-0">
+                {% csrf_token %}
+                <div class="inner-addon left-addon">
+                  <i class="fas fa-search"></i>
+                <input class="form-control" id="ballsearch" name="ballsrh" placeholder="  Any Input">
+              </div>
+              </form>
+          <div id="ballsearch-results" >
+    
+          </div>
+        </div>
+      </div>
+<!--Students--> 
+  <!--By name and Reg. id Students-->
+  <div id="myOverlaysn" class="overlay">
+      <span class="closebtn" onclick="closeSearchsn()" title="Close Overlay" style="z-index: 1;">x</span>
+      <div class="overlay-content">
+          <form class="form-inline my-2 my-lg-0">
+              {% csrf_token %}
+              <div class="inner-addon left-addon">
+                <i class="fas fa-search"></i>
+              <input class="form-control" id="snsearch" name="snsrh" placeholder=" By Name or Reg. ID">
+            </div>
+            </form>
+        <div id="snsearch-results" >
+
+        </div>
+      </div>
+    </div>
+    <!--By Dept. Students-->
+  <div id="myOverlaysd" class="overlay">
+      <span class="closebtn" onclick="closeSearchsd()" title="Close Overlay" style="z-index: 1;">x</span>
+      <div class="overlay-content">
+          <form class="form-inline my-2 my-lg-0">
+              {% csrf_token %}
+              <div class="inner-addon left-addon">
+                <i class="fas fa-search"></i>
+              <input class="form-control" id="sdsearch" name="sdsrh" placeholder=" By Dept. or Session">
+            </div>
+            </form>
+        <div id="sdsearch-results" >
+
+        </div>
+      </div>
+    </div>  
+   <!--By All Students-->
+   <div id="myOverlaysall" class="overlay">
+    <span class="closebtn" onclick="closeSearchsall()" title="Close Overlay" style="z-index: 1;">x</span>
+    <div class="overlay-content">
+        <form class="form-inline my-2 my-lg-0">
+            {% csrf_token %}
+            <div class="inner-addon left-addon">
+              <i class="fas fa-search"></i>
+            <input class="form-control" id="sallsearch" name="sallsrh" placeholder=" Any Input">
+          </div>
+          </form>
+      <div id="sallsearch-results" >
+
+      </div>
+    </div>
+  </div>  
+
+<!--Borrowing--> 
+  <!--By name and Reg. id Borrowing-->
+  <div id="myOverlaybrn" class="overlay">
+    <span class="closebtn" onclick="closeSearchbrn()" title="Close Overlay" style="z-index: 1;">x</span>
+    <div class="overlay-content">
+        <form class="form-inline my-2 my-lg-0">
+            {% csrf_token %}
+            <div class="inner-addon left-addon">
+              <i class="fas fa-search"></i>
+            <input class="form-control" id="brnsearch" name="brnsrh" placeholder=" By Name or Reg. ID">
+          </div>
+          </form>
+      <div id="brnsearch-results" >
+
+      </div>
+    </div>
+  </div>
+  <!--By Book name and Date Borrowing-->
+  <div id="myOverlaybrbd" class="overlay">
+    <span class="closebtn" onclick="closeSearchbrbd()" title="Close Overlay" style="z-index: 1;">x</span>
+    <div class="overlay-content">
+        <form class="form-inline my-2 my-lg-0">
+            {% csrf_token %}
+            <div class="inner-addon left-addon">
+              <i class="fas fa-search"></i>
+            <input class="form-control" id="brbdsearch" name="brbdsrh" placeholder=" Book Name or Date">
+          </div>
+          </form>
+      <div id="brbdsearch-results" >
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+      <!--return list search-->
+      <div id="myOverlayi" class="overlay">
+          <span class="closebtn" onclick="closeSearchi()" title="Close Overlay" style="z-index: 1;">x</span>
+          <div class="overlay-content">
+              <form class="form-inline my-2 my-lg-0">
+                  {% csrf_token %}
+                  <div class="inner-addon left-addon">
+                    <i class="fas fa-search"></i>
+                  <input class="form-control" id="isearch" name="isrh" placeholder="  By Name or Reg. ID">
+                </div>
+                </form>
+            <div id="isearch-results" >
+      
+            </div>
+          </div>
+        </div> 
+<!--return Books-->
+<div id="myOverlayrt" class="overlay">
+  <span class="closebtn" onclick="closeSearchrt()" title="Close Overlay" style="z-index: 1;">x</span>
+  <div class="overlay-content">
+      <form class="form-inline my-2 my-lg-0">
+          {% csrf_token %}
+          <div class="inner-addon left-addon">
+            <i class="fas fa-search"></i>
+          <input class="form-control" id="rtsearch" name="rtsrh" placeholder="  By Name or Reg. ID">
+        </div>
+        </form>
+    <div id="rtsearch-results" >
+
+    </div>
+  </div>
+</div> 
+
+      
+      
+      <!--<div class="sar">search</div>
+      <div style="margin-bottom:50px;"></div>-->
+      {% block body%}
+        
+      {% endblock%}
+
+      <!-- Footer -->
+<footer class="page-footer font-small blue" id="foo">
+
+  <!-- Copyright -->
+  
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+</body>
+<script  type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script  type="text/javascript" src="{% static 'js/books_search_ajax.js' %}"></script>
+<script  type="text/javascript" src="{% static 'js/books_search_bt_ajax.js' %}"></script>
+<script  type="text/javascript" src="{% static 'js/books_search_ajax.js' %}"></script>
+<script  type="text/javascript" src="{% static 'js/books_return_ajax.js' %}"></script>
+
+<script  type="text/javascript" src="{% static 'js/br_search_brn_ajax.js' %}"></script>
+<script  type="text/javascript" src="{% static 'js/br_search_brbd_ajax.js' %}"></script>
+
+<script  type="text/javascript" src="{% static 'js/students_search_sn_ajax.js' %}"></script>
+<script  type="text/javascript" src="{% static 'js/students_search_sd_ajax.js' %}"></script>
+<script  type="text/javascript" src="{% static 'js/students_search_sall_ajax.js' %}"></script>
+<script  type="text/javascript" src="{% static 'js/isearch_ajax.js' %}"></script>
+
+
+<!--<script  type="text/javascript" src="{% static 'js/jquery-3.4.0.min.js' %}"></script>-->
+
+
+</html>
