@@ -5,13 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Dengu Prevention</title> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
     <script type="text/javascript">
 	$(document).ready(function() {
-    $(".sel4,.sel5, .sel6").select2();
-    
-	});
+    $(".sel5, .sel6, .sel7").select2();
+});
 </script> 
         {% load static from staticfiles %}
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -21,6 +20,7 @@
 
         <!--<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-material-design.min.css' %}" />--> 
         <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" /> 
+        <link type="text/css" rel="stylesheet" href="{% static 'css/dstyle.css' %}" /> 
         <script  type="text/javascript" src="{% static 'src/CibulCalendar.js' %}"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -249,24 +249,20 @@ function w3_close() {
               
             {% if user.is_authenticated %}
             <li class="nav-item ">
-              <a class="nav-link" onclick="openSearchrt()" style="cursor: pointer;"><i class='fas fa-download'></i> Books Returns</a>
+              <a class="nav-link" onclick="openSearchrt()" style="cursor: pointer;"><i class='fas fa-download'></i> Blood donors</a>
             </li>
             <li class="nav-item {{news}}">
               <a class="nav-link"  href="/news/news"><i class='fas fa-newspaper'></i> News</a>
             </li>
-            <li class="nav-item dropdown {{b}}">
+            <li class="nav-item dropdown {{d}}">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class='fas fa-book-reader'></i> Books
+                <i class='fas fa-book-reader'></i> Dengue Area
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item {{bin}}" href="/books/binsert">New Insertion</a>
-                <a class="dropdown-item {{bli}}" href="/books/blist">Books List 
-                  <button type="button" class="btn btn-{{hcolor}} btn-circle">{{bcount}}</button></a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item">Manage Category(Books)</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item {{bt}}" href="/cbooks/cbtype">Books Type</a>
-                <a class="dropdown-item {{bs}}" href="/cbooks/cbshelf">Books Shelf</a>
+                <a class="dropdown-item {{din}}" href="/Dengue_Area/dainsert">New Insertion</a>
+                <a class="dropdown-item {{dl}}" href="/Dengue_Area/dalist">Area Search 
+                  <button type="button" class="btn btn-dark btn-circle">{{dacount}}</button></a>
+
               </div>
             </li>
 
@@ -304,9 +300,8 @@ function w3_close() {
                 <i class='fas fa-gear'></i> Setting
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item {{setcolor}}" href="/setting/headercolor">Manage Color</a>
                 <a class="dropdown-item {{setlog}}" href="/setting/activitylog">Activity Log
-                <button type="button" class="btn btn-{{hcolor}} btn-circle">{{logCount}}</button>
+                <button type="button" class="btn btn-dark btn-circle">{{logCount}}</button>
                 </a>
                 <a class="dropdown-item {{reg}}" href="/accounts/reg_form"><i class='fas fa-user'></i> Make Admin</a>
                 <a class="dropdown-item" href="/accounts/logout"><i class='fas fa-power-off'></i> Logout</a>
@@ -323,10 +318,8 @@ function w3_close() {
             </li>
             {% endif %}
 
-
           </ul>
-          <button type="button" class="btn btn-dark btn-circle" id="flip"><i class="fas fa-search"></i>
-          </button>&nbsp;
+
           {% if user.is_authenticated %}
           <button type="button" class="btn btn-dark btn-circle" id="flipadmin"><i class="fas fa-chalkboard-teacher"></i>
           </button>
@@ -335,7 +328,7 @@ function w3_close() {
       </nav>
 
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="display:none" id="panel">
+      <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="display:none" id="panel">
         <a class="navbar-brand " href="#"> <i class='fas fa-search'></i> Search</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -391,7 +384,7 @@ function w3_close() {
 
           </ul>
         </div>
-      </nav>
+      </nav>-->
       
 </div>
 
@@ -613,20 +606,9 @@ function w3_close() {
 </footer>
 <!-- Footer -->
 </body>
+<script  type="text/javascript" src="{% static 'js/da_search_ajax.js' %}"></script>
 <script  type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-<script  type="text/javascript" src="{% static 'js/books_search_ajax.js' %}"></script>
-<script  type="text/javascript" src="{% static 'js/books_search_bt_ajax.js' %}"></script>
-<script  type="text/javascript" src="{% static 'js/books_search_ajax.js' %}"></script>
-<script  type="text/javascript" src="{% static 'js/books_return_ajax.js' %}"></script>
-
-<script  type="text/javascript" src="{% static 'js/br_search_brn_ajax.js' %}"></script>
-<script  type="text/javascript" src="{% static 'js/br_search_brbd_ajax.js' %}"></script>
-
-<script  type="text/javascript" src="{% static 'js/students_search_sn_ajax.js' %}"></script>
-<script  type="text/javascript" src="{% static 'js/students_search_sd_ajax.js' %}"></script>
-<script  type="text/javascript" src="{% static 'js/students_search_sall_ajax.js' %}"></script>
-<script  type="text/javascript" src="{% static 'js/isearch_ajax.js' %}"></script>
-
+<script  type="text/javascript" src="{% static 'js/djs.js' %}"></script>
 
 <!--<script  type="text/javascript" src="{% static 'js/jquery-3.4.0.min.js' %}"></script>-->
 

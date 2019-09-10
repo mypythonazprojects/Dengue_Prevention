@@ -37,9 +37,45 @@ class News(models.Model):
     Newstitle=models.CharField(max_length=500)
     Newsdetails = RichTextUploadingField()
     Newsauthors = models.CharField(max_length=100)
-    Newswhere = models.CharField(max_length=200)
+    Newswhere = models.CharField(max_length=200) #choicefield
     Newscreated_at= models.DateTimeField(auto_now_add=True)
     class Meta:  
         db_table = "news"  
     def __str__(self):
         return self.Newstitle
+
+#4
+class DoctorsAdvised(models.Model):
+    doctitle=models.CharField(max_length=500)
+    docdetails = RichTextUploadingField()
+    docwho = models.CharField(max_length=100)
+    doccreated_at= models.DateTimeField(auto_now_add=True)
+    class Meta:  
+        db_table = "doctorsadvised"  
+    def __str__(self):
+        return self.doctitle
+#5
+class BloodDonors(models.Model):  
+    bdname = models.CharField(max_length=500)
+    bdblood=models.CharField(max_length=50) #choice
+    bdavailable=models.CharField(max_length=50) #choice
+    bdaddress=models.CharField(max_length=400)
+    bdcontact=models.CharField(max_length=400)
+    bdemail=models.EmailField(max_length=400)
+    bdgender=models.CharField(max_length=50)
+    bdcreated_at= models.DateTimeField(auto_now_add=True) 
+    class Meta:  
+        db_table = "blooddonors"  
+    def __str__(self):
+        return self.bdname
+#6
+class Articles(models.Model):
+    arttitle=models.CharField(max_length=500)
+    artdetails = RichTextUploadingField()
+    artauthors = models.CharField(max_length=100)
+    artrefer = RichTextUploadingField()
+    artcreated_at= models.DateTimeField(auto_now_add=True)
+    class Meta:  
+        db_table = "articles"  
+    def __str__(self):
+        return self.arttitle

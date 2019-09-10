@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block body%} 
+<div style="margin-top: 100px;">
+{% if messages %}
+    <div class="warning-msg">
+        {% for message in messages %}
+        <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+</div>
+<form method="POST" class="post-form" action="/Dengue_Area/dainsert/" >  
+            {% csrf_token %}  
+        <div class="container" id="form">   
+        <div class="form-group col">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="col-sm-4">  
+        <h3>Enter Details</h3>  
+        </div>  
+      </div>  
+      
+      <div class="form-row align-items-center">
+      <div class="col-auto">
+        <label class="sr-only" for="inlineFormInputGroup"></label>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Area Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          </div>
+          {{ form.daname }}
+        </div>
+      </div>
+      </div>
+      
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInputGroup">District</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend ">
+              <div class="input-group-text"style="height: 28px;">District&nbsp;&nbsp;&nbsp;</div>
+            </div>
+            {{ form.dadistrict }}
+          </div>
+        </div>
+        </div>
+
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInputGroup">Division</label>
+          <div class="input-group mb-2">
+
+            <div class="input-group-prepend">
+              
+              <div class="input-group-text" style="height: 28px;">Division&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        
+            {{ form.dadivision  }}
+        </div>
+        
+        </div>
+        </div>
+      </div>
+
+      <a href="https://www.gps-coordinates.net/" target="_blank">Find Lat. and Long. from GPS-coordinates</a> 
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup"></label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Latitude</div>
+              </div>
+              {{ form.dalat }}
+            </div>
+          </div>
+          </div>
+
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <label class="sr-only" for="inlineFormInputGroup"></label>
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Longitude</div>
+                </div>
+                {{ form.dalon }}
+              </div>
+            </div>
+            </div>
+
+          <div class="form-row align-items-center">
+              <div class="col-auto">
+                <label class="sr-only" for="inlineFormInputGroup">Alert</label>
+                <div class="input-group mb-2">
+      
+                  <div class="input-group-prepend">
+                    
+                    <div class="input-group-text" style="height: 28px;">Alert&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+               
+                  {{ form.daalert }}
+              </div>
+              
+              </div>
+              </div>
+            </div>
+
+        <div class="form-group col">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="col-sm-4">  
+        <button type="submit" class="btn btn-primary">Submit</button>  
+        </div>  
+      </div>  
+        </div>  
+    </form>  
+    <!--<iframe frameborder="1" width="100%" height="400px" src="//www.whatsmygps.com"  sandbox="allow-forms allow-scripts"></iframe>-->
+    {% endblock%} 

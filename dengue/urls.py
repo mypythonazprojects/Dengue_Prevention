@@ -11,6 +11,11 @@ urlpatterns = [
     path('accounts/reg_form/',views.register, name="register"),
     path('accounts/profile/',views.profile, name="profile"),
 
+    #denguearea
+    path('Dengue_Area/dainsert/', views.dainsert, name="dainsert"),
+    path('dasearch/', views.dasearch, name="dasearch"),
+    path('Dengue_Area/dalist/', views.dalist, name="dalist"),
+
     #setting
     path('setting/activitylog/', views.activitylog, name="activitylog"),
 

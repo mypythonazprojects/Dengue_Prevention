@@ -71,3 +71,32 @@ def viewshome(request):
 		'hh':'active'
 	}
 	return render(request,"viewsforall/index.html", context)
+
+#DengueArea
+def dainsert(request):
+	if request.method == "POST":  
+		form = DengueAreaForm(request.POST)  
+		if form.is_valid():  
+			try:
+				form.save()
+				messages.success(request, 'New list is Added successfully')
+				return redirect('/Dengue_Area/dainsert')
+			except:
+				pass  
+	else:
+		form =DengueAreaForm() 
+	args = {'form': form, 'd':'active', 'din':'active'}
+	return render(request,'Dengue_Area/dainsert.html',args)
+def dalist(request):
+	dalist = DengueArea.objects.order_by('dacreated_at').reverse()
+	return render(request,'Dengue_Area/dalist.html',{'dalist' : dalist, 'd':'active', 'dl':'active'})
+
+def dasearch(request):
+	if request.method == "GET":
+		dasearch_text = request.GET['dasearch_text']
+		if dasearch_text is not None and dasearch_text != u"":
+			dasearch_text = request.GET['dasearch_text']
+			dalist = DengueArea.objects.filter(Q(daname__icontains = dasearch_text) | Q(dadistrict__icontains = dasearch_text) |Q(dadivision__icontains = dasearch_text) | Q(daalert__icontains = dasearch_text) )
+		else:
+			dalist = []
+	return render_to_response('Dengue_Area/dasearch.html',{'dalist' : dalist})

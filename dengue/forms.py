@@ -10,6 +10,25 @@ from ckeditor.widgets import CKEditorWidget
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
+class DengueAreaForm(forms.ModelForm):
+    division = (
+        ('Barishal', 'Barishal',),('Chittagong', 'Chittagong',),('Dhaka', 'Dhaka',),('Khulna', 'Khulna',),('Mymensingh', 'Mymensingh',),('Rajshahi', 'Rajshahi',),('Rangpur', 'Rangpur',),('Sylhet', 'Sylhet',),
+    )
+    district = (
+        ('Barishal', 'Barishal',),('Chittagong', 'Chittagong',),('Dhaka', 'Dhaka',),('Khulna', 'Khulna',),('Mymensingh', 'Mymensingh',),('Rajshahi', 'Rajshahi',),('Rangpur', 'Rangpur',),('Sylhet', 'Sylhet',),
+    )
+    alert = (
+        ('Dangerous', 'Dangerous',),('Very Dangerous', 'Very Dangerous',),('Safe', 'Safe',),
+    )
+    daname=  forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','id':'inlineFormInputGroup', 'placeholder':'sylhet,sadar,jalalbad.'}),required=True,max_length=400)    
+    dadistrict= forms.CharField(widget=forms.Select(attrs={'class':'sel5','name':'state'}, choices=district))
+    dadivision = forms.CharField(widget=forms.Select(attrs={'class':'sel6'}, choices=division))
+    dalat=  forms.FloatField(min_value=0,widget=forms.NumberInput(attrs={'class':'form-control', 'placeholder':'00.000'}),required=True) 
+    dalon=  forms.FloatField(min_value=0,widget=forms.NumberInput(attrs={'class':'form-control', 'placeholder':'00.000'}),required=True)    
+    daalert=  forms.CharField(widget=forms.Select(attrs={'class':'sel7'}, choices=alert))    
+    class Meta:  
+        model = DengueArea  
+        fields = "__all__"
 
 
 
